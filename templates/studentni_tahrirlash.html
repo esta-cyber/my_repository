@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studentni tahrirlash</title>
+    <link rel="stylesheet" href="{% static 'css/qushish.css' %}">
+</head>
+<body class="dark-theme">
+    <div id="bgFollower" class="bg-follower" style="background-image: radial-gradient(circle at 25% 30%, rgba(110,20,28,0.44) 0%, rgba(0,0,0,0.7) 40%), radial-gradient(circle at 75% 70%, rgba(48,10,12,0.14) 0%, rgba(0,0,0,0.6) 45%), linear-gradient(180deg, rgba(8,4,6,0.95), rgba(18,6,8,0.95)); background-size: cover; background-position: center; filter: brightness(0.7);"></div>
+    <div id="bgSpot" class="bg-spot" style="left:50%;top:50%;"></div>
+    <div class="container">
+        <p class="back-box"><a href="{% url 'ruyxat' %}" class="back-btn">Ortga</a></p>
+        <h1>Studentni tahrirlash</h1>
+        <form method="post" action="">
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            <div class="form-group">
+                {{ form.name }}
+                <label for="{{ form.name.id_for_label }}">Ism</label>
+                {{ form.name.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.surname }}
+                <label for="{{ form.surname.id_for_label }}">Familiya</label>
+                {{ form.surname.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.email }}
+                <label for="{{ form.email.id_for_label }}">Email</label>
+                {{ form.email.errors }}
+            </div>
+            <div class="form-group">
+                {{ form.age }}
+                <label for="{{ form.age.id_for_label }}">Yosh</label>
+                {{ form.age.errors }}
+            </div>
+            <button type="submit">Saqlash</button>
+        </form>
+    </div>
+        <script>
+        (function(){
+            const el = document.getElementById('bgFollower');
+            if(!el) return;
+            const spot = document.getElementById('bgSpot');
+            let tx = window.innerWidth/2, ty = window.innerHeight/2, cx = tx, cy = ty;
+            window.addEventListener('mousemove', e => {
+                tx = e.clientX;
+                ty = e.clientY;
+            });
+            function raf(){
+                cx += (tx - cx) * 0.16;
+                cy += (ty - cy) * 0.16;
+                if(spot){
+                    spot.style.left = cx + 'px';
+                    spot.style.top = cy + 'px';
+                }
+                requestAnimationFrame(raf);
+            }
+            raf();
+        })();
+        </script>
+</body>
+</html>

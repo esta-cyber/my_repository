@@ -1,0 +1,146 @@
+/* Umumiy sahifa sozlamalari */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: #e6eef6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Konteyner (Forma bloki) */
+.container {
+    background-color: #0f1724;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    position: relative; /* Tugmani o'ng tepaga joylash uchun shart */
+}
+
+/* Ortga tugmasi joylashgan blok */
+.back-box {
+    margin: 0;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* Ortga tugmasining o'zi */
+.back-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    background-color: #0b1220;
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 6px;
+    border: 1px solid #18222b;
+    transition: all 0.2s ease;
+}
+
+/* Ortga tugmasiga sichqoncha kelganda */
+.back-btn:hover {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+/* Ortga tugmasi bosilganda */
+.back-btn:active {
+    transform: scale(0.96);
+}
+
+/* Sarlavha */
+h1 {
+    font-size: 22px;
+    color: #e6eef6;
+    margin-top: 15px; /* Tugma bilan oraliq masofa */
+    margin-bottom: 24px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Formadagi har bir qator (Label) */
+label {
+    display: block;
+    margin-bottom: 16px;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Input maydonlari */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    margin-top: 6px;
+    border: 1px solid #21303f;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    background-color: #07101a;
+    color: #e6eef6;
+}
+
+/* Inputga bosilgandagi holat (Focus) */
+input:focus {
+    border-color: #7c3aed;
+    background-color: #07121b;
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.14);
+    outline: none;
+}
+
+/* Qo'shish tugmasi */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.08s ease;
+    margin-top: 10px;
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.18);
+}
+
+button[type="submit"]:hover {
+    background-color: #6d28d9;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Mouse-follow background layer */
+.bg-follower {
+    position: fixed;
+    inset: 0;
+    z-index: -2; /* sit behind the spot */
+    pointer-events: none;
+    will-change: background-position;
+    background: #000000; /* plain black background layer */
+}
+
+/* Movable reddish spot that follows the cursor (behind content, above bg-follower) */
+.bg-spot {
+    position: fixed;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    z-index: -1; /* above bg-follower but below page content */
+    pointer-events: none;
+    background: radial-gradient(circle at 40% 35%, rgba(180,60,40,0.62) 0%, rgba(180,60,40,0.28) 30%, transparent 60%);
+    filter: blur(26px) saturate(1.05);
+    transform: translate3d(-50%,-50%,0);
+    transition: opacity 0.12s linear;
+}

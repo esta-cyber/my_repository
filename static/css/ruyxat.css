@@ -1,0 +1,262 @@
+/* Mukammal ruyxat.css jadvallar uchun */
+:root {
+    --bg: #000000;
+    --card: #0f1724;
+    --text-main: #e6eef6;
+    --text-muted: #94a3b8;
+    --text-title: #e2e8f0;
+    --accent: #7c3aed;
+    --accent-hover: #6d28d9;
+    --surface-border: #12202b;
+    --table-th-bg: #0b1220;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg);
+    color: var(--text-main);
+    margin: 0;
+    padding: 40px 20px;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Tashqi konteyner (Karta) */
+.table-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
+    border: 1px solid var(--surface-border);
+    overflow: hidden;
+}
+
+/* Yuqori panel (Toolbar) */
+.table-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.table-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-title);
+    letter-spacing: -0.02em;
+}
+
+/* "Yangi qo'shish" Tugmasi */
+.add-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--accent);
+    color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 8px 28px rgba(124, 58, 237, 0.18);
+    transition: all 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.add-btn:hover {
+    background-color: var(--accent-hover);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.22);
+    transform: translateY(-1px);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.edit-btn,
+.delete-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.edit-btn {
+    background-color: #06b6d4;
+    color: #071016;
+    border: 1px solid rgba(6,182,212,0.08);
+    box-shadow: 0 6px 18px rgba(6,182,212,0.12);
+}
+
+.edit-btn:hover {
+    background-color: #0891b2;
+    transform: translateY(-1px);
+}
+
+.delete-btn {
+    background-color: #ef4444;
+    color: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0 6px 18px rgba(239, 68, 68, 0.12);
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* Jadval Konteyneri */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 700px;
+}
+
+/* Sarlavhalar (Th) */
+thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--table-th-bg);
+    padding: 16px 32px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Qatorlar va Kataklar (Tr & Td) */
+tbody tr {
+    transition: background-color 0.15s ease;
+}
+
+tbody tr:hover {
+    background-color: #0b1220;
+}
+
+tbody td {
+    padding: 18px 32px;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--surface-border);
+    vertical-align: middle;
+    background: transparent;
+}
+
+/* Oxirgi qatorda chiziq bo'lmasligi uchun */
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Ism ustunini qalinroq va chiroyli qilish */
+tbody tr td:first-child {
+    font-weight: 600;
+    color: var(--text-title);
+}
+
+/* Email ustuniga avtomatik rang berish (HTML o'zgarmasdan ishlaydi) */
+tbody tr td:nth-child(3) {
+    color: var(--accent);
+    font-weight: 500;
+}
+
+/* Yosh ustunini biroz xiraroq qilish */
+tbody tr td:nth-child(4) {
+    color: var(--text-muted);
+}
+
+/* Links: no white backgrounds on hover */
+a, a:link, a:visited, a:active {
+    background: transparent;
+    color: var(--accent);
+}
+
+a:hover {
+    background: transparent;
+    color: var(--accent-hover);
+}
+
+.action-buttons a {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Ro'yxat bo'sh bo'lgandagi holat */
+.empty {
+    padding: 48px !important;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1rem;
+    font-style: italic;
+    background-color: transparent;
+}
+
+/* Mobil qurilmalar uchun moslashuvchanlik (Responsive) */
+@media (max-width: 768px) {
+    body {
+        padding: 16px 8px;
+    }
+    
+    .table-toolbar {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .table-actions {
+        width: 100%;
+    }
+    
+    .add-btn {
+        width: 100%;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    
+    thead th, tbody td {
+        padding: 12px 20px;
+    }
+}
+
+/* Mouse-follow background layer (shared) */
+.bg-follower {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    will-change: background-position;
+    background: #000000;
+}
+
+.bg-spot {
+    position: fixed;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(circle at 40% 35%, rgba(180,60,40,0.62) 0%, rgba(180,60,40,0.28) 30%, transparent 60%);
+    filter: blur(26px) saturate(1.05);
+    transform: translate3d(-50%,-50%,0);
+    transition: opacity 0.12s linear;
+}
