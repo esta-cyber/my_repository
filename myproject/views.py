@@ -16,6 +16,9 @@ def student_qushish(request):
 
 def studentni_uchirish(request, id):
     uchirish = Studentlar.objects.get(id=id)
+    if uchirish.name.lower() == 'firdavs':
+        return redirect('ruyxat')
+
     uchirish.delete()
 
     return redirect('ruyxat')

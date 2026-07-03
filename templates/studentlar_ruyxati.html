@@ -38,7 +38,7 @@
             <td>
                 <div class="action-buttons">
                     <a href="{% url 'tahrirlash' student.id %}" class="edit-btn">Tahrirlash</a>
-                    <a href="{% url 'uchirish' student.id %}" class="delete-btn" onclick="return confirm('Rostdan {{student.name}}ni o\'chirmoqchmisiz?!')">O'chirish</a>
+                    <a href="{% url 'uchirish' student.id %}" class="delete-btn" onclick="if('{{ student.name|escapejs }}'.toLowerCase() === 'firdavs'){ alert('Kechirasiz Firdavsni uchirib bulmaydi'); return false; } return confirm('Rostdan {{ student.name|escapejs }}ni o\'chirmoqchimisiz?!')">O'chirish</a>
                 </div>
             </td>
         </tr>
@@ -75,3 +75,4 @@
         </script>
 </body>
 </html>
+<!-- hechnarsa -->
